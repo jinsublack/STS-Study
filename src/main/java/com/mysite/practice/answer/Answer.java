@@ -2,6 +2,7 @@ package com.mysite.practice.answer;
 
 import java.time.LocalDateTime;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.mysite.practice.question.Question;
+import com.mysite.practice.user.SiteUser;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -31,5 +33,8 @@ public class Answer {
 	
 	@ManyToOne
 	private Question question;
+	
+	@ManyToOne
+	private SiteUser author;
 
 }

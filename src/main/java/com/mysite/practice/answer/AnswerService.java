@@ -2,8 +2,10 @@ package com.mysite.practice.answer;
 
 import java.time.LocalDateTime;
 
-import com.mysite.practice.question.Question;
 import org.springframework.stereotype.Service;
+
+import com.mysite.practice.question.Question;
+import com.mysite.practice.user.SiteUser;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,11 +15,12 @@ public class AnswerService {
 
 	private final AnswerRepository answerRepository;
 	
-	public void create(Question question, String content) {
+	public void create(Question question, String content, SiteUser author) {
 		Answer answer = new Answer();
 		answer.setContent(content);
 		answer.setCreateDate(LocalDateTime.now());
 		answer.setQuestion(question);
+		answer.setAuthor(author);
 		this.answerRepository.save(answer);
 	}
 }

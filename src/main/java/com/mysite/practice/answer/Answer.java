@@ -1,7 +1,7 @@
 package com.mysite.practice.answer;
 
 import java.time.LocalDateTime;
-
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.mysite.practice.question.Question;
@@ -38,4 +39,7 @@ public class Answer {
 	private SiteUser author;
 
 	private LocalDateTime modifyDate;
+	
+	@ManyToMany
+	Set<SiteUser> voter;
 }
